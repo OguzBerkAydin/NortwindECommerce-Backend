@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -27,6 +28,11 @@ namespace Business.Concrete
 		public List<ProductDetailDto> GetProductDetails()
 		{
 			return _productDal.GetProductDetails();
+		}
+		public IResult Add(Product product)
+		{
+			_productDal.Add(product);
+			return new Result(true, "Ürün eklendi");
 		}
 	}
 }
