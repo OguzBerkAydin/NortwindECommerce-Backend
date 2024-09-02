@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Utilities.Result;
+using Entities.Concrete;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
@@ -12,5 +13,6 @@ namespace Business.Abstract
 	{
 		List<Product> GetAll();
 		List<ProductDetailDto> GetProductDetails();
+		IResult Add(Product product);
 	}
 }
