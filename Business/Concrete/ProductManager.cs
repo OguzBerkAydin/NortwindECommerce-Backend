@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
-using Core.Utilities.Result;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -20,19 +21,29 @@ namespace Business.Concrete
 			_productDal = productDal;
 		}
 
-		public List<Product> GetAll()
+		public IDataResult<List<ProductDetailDto>> GetProductDetails()
 		{
-			return _productDal.GetAll();
-		}
-
-		public List<ProductDetailDto> GetProductDetails()
-		{
-			return _productDal.GetProductDetails();
+			return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetProductDetails());
 		}
 		public IResult Add(Product product)
 		{
+			if (product.ProductName.Length < 2)
+			{
+				return new ErrorResult(Messages.ProductNameInvalid);
+			}
 			_productDal.Add(product);
-			return new Result(true, "Ürün eklendi");
+			return new SuccessResult(Messages.ProductAdded);
+		}
+
+		public IDataResult<List<Product>> GetAll()
+		{
+
+			return new SuccessDataResult<List<Product>>(_productDal.GetAll(),Messages.ProductsListed);
+		}
+
+		public IDataResult<Product> GetById(int id)
+		{
+			return new SuccessDataResult<Product>(_productDal.Get(p => p.ProductId == id));
 		}
 	}
 }

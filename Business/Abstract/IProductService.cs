@@ -1,4 +1,4 @@
-﻿using Core.Utilities.Result;
+﻿using Core.Utilities.Results;
 using Entities.Concrete;
 using Entities.DTOs;
 using System;
@@ -11,8 +11,9 @@ namespace Business.Abstract
 {
 	public interface IProductService
 	{
-		List<Product> GetAll();
-		List<ProductDetailDto> GetProductDetails();
+		IDataResult<List<Product>> GetAll();
+		IDataResult<List<ProductDetailDto>> GetProductDetails();
+		IDataResult<Product> GetById(int id);
 		IResult Add(Product product);
 	}
 }
