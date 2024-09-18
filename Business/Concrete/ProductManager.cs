@@ -19,12 +19,6 @@ namespace Business.Concrete
 		{
 			_productDal = productDal;
 		}
-
-		public List<Product> GetAll()
-		{
-			return _productDal.GetAll();
-		}
-
 		public List<ProductDetailDto> GetProductDetails()
 		{
 			return _productDal.GetProductDetails();
@@ -33,6 +27,31 @@ namespace Business.Concrete
 		{
 			_productDal.Add(product);
 			return new Result(true, "Ürün eklendi");
+		}
+
+		public DataResult<List<Product>> GetAll()
+		{
+			return new SuccessDataResult<List<Product>>(_productDal.GetAll(),"Ürünler Listelendi");
+		}
+
+		public DataResult<Product> Get(int id)
+		{
+			throw new NotImplementedException();
+		}
+
+		Result IGenericService<Product>.Add(Product entity)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Result Update(Product entity)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Result Delete(Product entity)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

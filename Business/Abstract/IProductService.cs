@@ -9,10 +9,8 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-	public interface IProductService
+	public interface IProductService : IGenericService<Product>
 	{
-		List<Product> GetAll();
 		List<ProductDetailDto> GetProductDetails();
-		IResult Add(Product product);
 	}
 }
