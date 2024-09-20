@@ -19,27 +19,27 @@ namespace Business.Concrete
 			_orderDal = orderDal;
 		}
 
-		public Result Add(Order entity)
+		public IResult Add(Order entity)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Result Delete(Order entity)
+		public IResult Delete(Order entity)
 		{
 			throw new NotImplementedException();
 		}
 
-		public DataResult<Order> Get(int id)
+		public IDataResult<Order> Get(int id)
 		{
 			throw new NotImplementedException();
 		}
 
-		public DataResult<List<Order>> GetAll()
+		public IDataResult<List<Order>> GetAll()
 		{
 			throw new NotImplementedException();
 		}
 
-		public Result Update(Order entity)
+		public IResult Update(Order entity)
 		{
 			throw new NotImplementedException();
 		}

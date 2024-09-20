@@ -19,27 +19,27 @@ namespace Business.Concrete
 			_categoryDal = categoryDal;
 		}
 
-		public Result Add(Category entity)
+		public IResult Add(Category entity)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Result Delete(Category entity)
+		public IResult Delete(Category entity)
 		{
 			throw new NotImplementedException();
 		}
 
-		public DataResult<Category> Get(int id)
+		public IDataResult<Category> Get(int id)
 		{
 			throw new NotImplementedException();
 		}
 
-		public DataResult<List<Category>> GetAll()
+		public IDataResult<List<Category>> GetAll()
 		{
 			throw new NotImplementedException();
 		}
 
-		public Result Update(Category entity)
+		public IResult Update(Category entity)
 		{
 			throw new NotImplementedException();
 		}

@@ -29,27 +29,22 @@ namespace Business.Concrete
 			return new Result(true, "Ürün eklendi");
 		}
 
-		public DataResult<List<Product>> GetAll()
+		public IDataResult<List<Product>> GetAll()
 		{
 			return new SuccessDataResult<List<Product>>(_productDal.GetAll(),"Ürünler Listelendi");
 		}
 
-		public DataResult<Product> Get(int id)
+		public IDataResult<Product> Get(int id)
 		{
 			throw new NotImplementedException();
 		}
 
-		Result IGenericService<Product>.Add(Product entity)
+		public IResult Update(Product entity)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Result Update(Product entity)
-		{
-			throw new NotImplementedException();
-		}
-
-		public Result Delete(Product entity)
+		public IResult Delete(Product entity)
 		{
 			throw new NotImplementedException();
 		}

@@ -9,10 +9,10 @@ namespace Business.Abstract
 {
 	public interface IGenericService<T>
 	{
-		DataResult<List<T>> GetAll();
-		DataResult<T> Get(int id);
-		Result Add(T entity);
-		Result Update(T entity);
-		Result Delete(T entity);
+		IDataResult<List<T>> GetAll();
+		IDataResult<T> Get(int id);
+		IResult Add(T entity);
+		IResult Update(T entity);
+		IResult Delete(T entity);
 	}
 }

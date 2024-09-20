@@ -17,27 +17,28 @@ namespace Business.Concrete
         {
             _customerDal = customerDal;
         }
-        public Result Add(Customer entity)
+
+		public IResult Add(Customer entity)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Result Delete(Customer entity)
+		public IResult Delete(Customer entity)
 		{
 			throw new NotImplementedException();
 		}
 
-		public DataResult<Customer> Get(int id)
+		public IDataResult<Customer> Get(int id)
 		{
 			throw new NotImplementedException();
 		}
 
-		public DataResult<List<Customer>> GetAll()
+		public IDataResult<List<Customer>> GetAll()
 		{
 			throw new NotImplementedException();
 		}
 
-		public Result Update(Customer entity)
+		public IResult Update(Customer entity)
 		{
 			throw new NotImplementedException();
 		}
