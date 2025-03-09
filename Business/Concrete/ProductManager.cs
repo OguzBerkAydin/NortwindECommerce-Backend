@@ -1,7 +1,9 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
+using Core.Utilities.Business;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -29,13 +31,23 @@ namespace Business.Concrete
 		[ValidationAspect(typeof(ProductValidator))]
 		public IResult Add(Product product)
 		{
+			IResult result = BusinessRules.Run(CheckIfProductCountOfCategoryCorrect(product.CategoryId),
+				CheckIfProductNameExist(product.ProductName));
+
+			if (result != null)
+			{
+				return result;
+				
+			}
 			_productDal.Add(product);
-			return new Result(true, "Ürün eklendi");
+
+			return new SuccessResult(MyMessages.ProductAdded);
 		}
+
 
 		public IDataResult<List<Product>> GetAll()
 		{
-			return new SuccessDataResult<List<Product>>(_productDal.GetAll(),"Ürünler Listelendi");
+			return new SuccessDataResult<List<Product>>(_productDal.GetAll(), "Ürünler Listelendi");
 		}
 
 		public IDataResult<Product> Get(int id)
@@ -51,6 +63,28 @@ namespace Business.Concrete
 		public IResult Delete(Product entity)
 		{
 			throw new NotImplementedException();
+		}
+
+
+		public IResult CheckIfProductCountOfCategoryCorrect(int categoryId)
+		{
+			var result = _productDal.GetAll(p => p.CategoryId == categoryId).Count;
+			if (result > 10)
+			{
+				return new ErrorResult(MyMessages.ProductCountOfCategoryError);
+			}
+			return new SuccessResult();
+		}
+
+		public IResult CheckIfProductNameExist(string name)
+		{
+			var result = _productDal.GetAll(p => p.ProductName == name).Any();
+
+			if (result)
+			{
+				return new ErrorResult(MyMessages.ProductNameAldreadyExist);
+			}
+			return new SuccessResult();
 		}
 	}
 }
