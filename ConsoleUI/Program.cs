@@ -11,11 +11,11 @@ namespace ConsoleUI
 
 			//CategoryTest();
 
-			ProductManager productManager = new(new EfProductDal());
-            foreach (var p in productManager.GetProductDetails())
-            {
-                Console.WriteLine(p.ProductName + "***" + p.CategoryName);
-            }
+			//ProductManager productManager = new(new EfProductDal());
+   //         foreach (var p in productManager.GetProductDetails())
+   //         {
+   //             Console.WriteLine(p.ProductName + "***" + p.CategoryName);
+   //         }
 
         }
 

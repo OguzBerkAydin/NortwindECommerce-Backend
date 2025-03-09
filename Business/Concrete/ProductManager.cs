@@ -19,10 +19,12 @@ namespace Business.Concrete
 	public class ProductManager : IProductService
 	{
 		IProductDal _productDal;
+		ICategoryService _categoryService;
 
-		public ProductManager(IProductDal productDal)
+		public ProductManager(IProductDal productDal, ICategoryService categoryService)
 		{
 			_productDal = productDal;
+			_categoryService = categoryService;
 		}
 		public List<ProductDetailDto> GetProductDetails()
 		{
@@ -83,6 +85,16 @@ namespace Business.Concrete
 			if (result)
 			{
 				return new ErrorResult(MyMessages.ProductNameAldreadyExist);
+			}
+			return new SuccessResult();
+		}
+
+		public IResult CheckIfCategoryLimitExceeded(int categoryId)
+		{
+			var result = _categoryService.GetAll();
+			if(result.Data.Count > 15)
+			{
+				return new ErrorResult(MyMessages.CategoryLimitExceded);
 			}
 			return new SuccessResult();
 		}
