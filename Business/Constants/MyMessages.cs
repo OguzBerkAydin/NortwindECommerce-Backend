@@ -29,5 +29,8 @@ namespace Business.Constants
 		public static string ProductNameLengthInvalid = "Ürün Adı 2 karakterden küçük olamaz";
 		public static string ProductCountOfCategoryError = "Mevcut Kategori için ürün limiti aşıldı";
 		public static string ProductNameAldreadyExist = "Ürün Adı Zaten Mevcut";
+
+		public static string UserNotFound = "Kullanıcı bulunamadı";
+		public static string PasswordError = "Şifre hatalı";
 	}
 }
