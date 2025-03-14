@@ -17,12 +17,12 @@ namespace WebAPI.Controllers
 			_productService = productService;
 		}
 
-		[HttpGet]
+		[HttpGet("getall")]
 		public IActionResult Get()
 		{
 			return Ok(_productService.GetAll());
 		}
-		[HttpPost]
+		[HttpPost("add")]
 		public IActionResult Post(Product product)
 		{
 			return Ok(_productService.Add(product));
