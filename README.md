@@ -80,15 +80,22 @@ Konsol uygulaması ile test etmek için kullanılan katman.
 ## Kurulum
 
 1. Projeyi klonlayın
+   ```bash
+   git clone [<repository-url>](https://github.com/OguzBerkAydin/NortwindECommerce-Backend.git)
+   ```
 2. Gerekli bağımlılıkları yükleyin:
    ```bash
    dotnet restore
    ```
 3. `context` sınıfındaki veritabanı bağlantı ayarlarını yapılandırın
-4. Veritabanını oluşturun: ```bash
-   dotnet ef database update```
-7. Projeyi çalıştırın: ```bash
-   dotnet run --project WebAPI```
+4. Veritabanını oluşturun:
+    ```bash
+   dotnet ef database update
+   ```
+5. Projeyi çalıştırın:
+    ```bash
+   dotnet run --project WebAPI
+   ```
 
 ## Lisans
 
