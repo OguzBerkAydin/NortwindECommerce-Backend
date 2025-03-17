@@ -85,8 +85,10 @@ Konsol uygulaması ile test etmek için kullanılan katman.
    dotnet restore
    ```
 3. `context` sınıfındaki veritabanı bağlantı ayarlarını yapılandırın
-4. Veritabanını oluşturun: `dotnet ef database update`
-5. Projeyi çalıştırın: `dotnet run --project WebAPI`
+4. Veritabanını oluşturun: ```bash
+   dotnet ef database update```
+7. Projeyi çalıştırın: ```bash
+   dotnet run --project WebAPI```
 
 ## Lisans
 
