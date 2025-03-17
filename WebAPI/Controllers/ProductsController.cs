@@ -18,9 +18,20 @@ namespace WebAPI.Controllers
 		}
 
 		[HttpGet("getall")]
-		public IActionResult Get()
+		public IActionResult GetAll()
 		{
 			return Ok(_productService.GetAll());
+		}
+		[HttpGet("getbyid")]
+		public IActionResult Get(int productId)
+		{
+			var result = _productService.Get(productId);
+			if (result.Success)
+			{
+				return Ok(result.Data);
+			}
+
+			return BadRequest(result.Message);
 		}
 		[HttpPost("add")]
 		public IActionResult Post(Product product)
