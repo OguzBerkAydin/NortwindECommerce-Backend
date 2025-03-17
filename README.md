@@ -81,7 +81,7 @@ Konsol uygulaması ile test etmek için kullanılan katman.
 
 1. Projeyi klonlayın
    ```bash
-   git clone [<repository-url>](https://github.com/OguzBerkAydin/NortwindECommerce-Backend.git)
+   git clone https://github.com/OguzBerkAydin/NortwindECommerce-Backend.git
    ```
 2. Gerekli bağımlılıkları yükleyin:
    ```bash
